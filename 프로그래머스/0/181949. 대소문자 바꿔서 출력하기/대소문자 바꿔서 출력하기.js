@@ -11,14 +11,10 @@ rl.on('line', function (line) {
     rl.close();
 }).on('close',function(){
     str = input[0];
-    let value = "";
     
-    for(let i = 0; i < str.length; i++){
-        if(str[i] == str[i].toUpperCase()){
-            value += str[i].toLowerCase();
-        }else {
-            value += str[i].toUpperCase();
-        }
-    }
-    console.log(value);
+    const value = str
+        .split('')
+        .map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase())
+        .join('');
+    console.log(value)
 });
